@@ -131,7 +131,7 @@ select * from response_times where value > 200
 --
 select * from user_events where url_base = 'friends#show'
 --
-select line from log_lines where line =~ /paul@influx.com/
+select line from log_lines where line =~ /paul@influxdb.com/
 ```
 
 ![Selecting log lines on regex match](/images/docs/select_log_lines.jpg)
