@@ -132,7 +132,7 @@ The response returned is:
 ```json
 {"results":[{}]}
 ```
-Durations such as `1h`, `90m`, `12h`, `7d`, and `4w`, are all supported and mean 1 hour, 90 minutes, 12 hours, 7 day, and 4 weeks, respectively. For infinite retention -- meaning the data will never be deleted -- use `INF` for duration. The minimum retention period is 1 hour.
+Durations such as `1h`, `90m`, `12h`, `7d`, and `4w`, are all supported and mean 1 hour, 90 minutes, 12 hours, 7 days, and 4 weeks, respectively. For infinite retention -- meaning the data will never be deleted -- use `INF` for duration. The minimum retention period is 1 hour.
 
 ### Show existing retention policies
 To delete a retention policy issue the following command:
