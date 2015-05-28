@@ -127,4 +127,6 @@ The API endpoint is: `/cluster/shard_spaces/:db/:name`. Where :db is the databas
 }
 ```
 
+Note that you must provide definitions for each shard space setting in your JSON update, even the ones that remain unchanged. Omitting a setting from the JSON will set it to null, which will almost certainly disable that shard space until the setting is updated to a meaningful value. 
+
 Updates to the retention policy will take effect on the next sweep, which happens every 10 minutes. Updates to replication factor and split will be take into account the next time shards must be created for a shard space. Regex updates will take effect for any writes after the update and for any queries.
