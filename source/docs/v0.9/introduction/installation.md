@@ -1,6 +1,6 @@
 # Installation
 
-This page provides directions on downloading and starting InfluxDB Version 0.9.0 - Release Candidate 30.
+This page provides directions on downloading and starting InfluxDB Version 0.9.0 - Release Candidate 31.
 
 For users who don't want to install any software and are ready to use InfluxDB, you may want to check out our [managed hosted InfluxDB offering](http://customers.influxdb.com). However, our hosted service is currently only running InfluxDB v0.8.8.
 
@@ -15,8 +15,8 @@ Debian users can install by downloading the package and installing it like this:
 
 ```bash
 # for 64-bit systems
-wget http://get.influxdb.org/influxdb_0.9.0-rc30_amd64.deb
-sudo dpkg -i influxdb_0.9.0-rc30_amd64.deb
+wget http://get.influxdb.org/influxdb_0.9.0-rc31_amd64.deb
+sudo dpkg -i influxdb_0.9.0-rc31_amd64.deb
 ```
 
 Then start the daemon by running:
@@ -30,8 +30,8 @@ RedHat and CentOS users can install by downloading and installing the rpm like t
 
 ```bash
 # for 64-bit systems
-wget http://get.influxdb.org/influxdb-0.9.0_rc30-1.x86_64.rpm
-sudo rpm -ivh influxdb-0.9.0_rc30-1.x86_64.rpm
+wget http://get.influxdb.org/influxdb-0.9.0_rc31-1.x86_64.rpm
+sudo rpm -ivh influxdb-0.9.0_rc31-1.x86_64.rpm
 ```
 
 Then start the daemon by running:
