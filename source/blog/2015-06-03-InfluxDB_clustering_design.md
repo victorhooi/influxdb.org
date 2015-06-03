@@ -45,7 +45,7 @@ The new clustering design consists of two systems: a CP system for storing clust
 The cluster metadata system is a Raft cluster that stores metadata about the cluster. Specifically, it stores:
 
 * Servers in the cluster - unique id, hostname, if it’s running the cluster metadata service
-* Databases, Retention Policies, and CQs
+* Databases, Retention Policies, and continuous queries
 * Users and permissions
 * Shard Groups - start and end time, shards
 * Shards - unique shard id, server ids that have a copy of the shard
@@ -55,7 +55,9 @@ An update to any of this data will have to run through the cluster metadata serv
 Every server in the cluster keeps an in memory copy of this cluster metadata. Each will periodically refresh the entire metadata set to pick up any changes. For requests coming in, if there is a cache miss (like a database it doesn't yet know about), it will request the relevant information from the CP service.
 
 ### Writes - AP
-For handling reads and writes, we leverage the fact that time series data is almost always new immutable data. This means we can bypass conflict resolution schemes like vector clocks or pushing it out to the client. We favor accepting writes and reads over strong consistency.
+For handling reads and writes, we leverage the fact that time series data is almost always new immutable data. This means we can bypass conflict resolution schemes like vector clocks or pushing it out to the client. We favor accepting writes and reads over strong consistency. 
+
+One caveat is that shard groups and shards are created in the CP system. During normal operation these will be created well ahead of the time they will have data written into them. However, that means that if a node is partitioned off from the CP system for too long, it won't be able to write data because it won't have the shard group definitions.
 
 For example, let’s take a look at what happens when a write comes in. Say we have a cluster of 4 servers:
 
