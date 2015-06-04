@@ -1,5 +1,5 @@
 ---
-title: InfluxDB Clustering Design - neither CP or AP
+title: InfluxDB Clustering Design - neither strictly CP or AP
 author: Paul Dix
 published_on: June 3, 2015
 ---
